@@ -32,8 +32,9 @@ public class LibraryController {
     
     @GetMapping("/borrow")
     public String borrowingForm(@RequestParam("id") Integer id, Model model) {
-    	Library library = libraryService 
+    	Library library = this.libraryService.findById(id);
     	model.addAttribute("library", library);
+    	return "";
     }
 
 //    @GetMapping
