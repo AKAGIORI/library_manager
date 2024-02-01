@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.entity.Library;
 import com.example.service.LibraryService;
+import com.example.service.LoginUser;
 
 @Controller
 @RequestMapping("library")
@@ -37,7 +38,9 @@ public class LibraryController {
     	return "library/borrowingForm";
     }
     
-    public String borrow(@RequestParam("id") Integer id, @RequestParam("return_due_date") String returnDueDate, @AuthenticationPrincipal LoginUser loginUser)d
+    public String borrow(@RequestParam("id") Integer id, @RequestParam("return_due_date") String returnDueDate, @AuthenticationPrincipal LoginUser loginUser) {
+    	Library library = this.libraryService.findById(id);
+    }
 
 //    @GetMapping
 //    public String index() {
